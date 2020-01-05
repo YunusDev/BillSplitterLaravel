@@ -3,11 +3,7 @@
 use Illuminate\Http\Request;
 
 
-Route::group([
-
-    'middleware' => ['api', 'header'],
-
-], function ($router) {
+Route::group(['middleware' => ['api', 'header']], function ($router) {
 
     Route::post('login', 'AuthController@login');
     Route::post('register', 'AuthController@register');
@@ -27,6 +23,7 @@ Route::group([
 
     Route::get('my/bills', 'BillController@get')->name('bill');
     Route::post('create/bill', 'BillController@store')->name('bill');
+    Route::get('bill/show/{code}', 'BillController@show')->name('billShow');
 
 
     Route::group(['prefix' => 'admin', 'namespace'=>'Admin'], function (){

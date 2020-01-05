@@ -21,4 +21,10 @@ class Split extends Model
         return $this->belongsTo(User::class);
 
     }
+
+    public function billSplit($bill_id, $split_email){
+
+         return Product::where('bill_id', $bill_id)->where('email', $split_email)->get();
+
+    }
 }

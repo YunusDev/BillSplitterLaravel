@@ -16,10 +16,10 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('bill_id');
-
             $table->string('name');
             $table->bigInteger('price');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->string('email');
             $table->timestamps();
 
             $table->foreign('bill_id')->references('id')->on('bills')->onDelete('cascade');

@@ -15,9 +15,10 @@ class CreateSplitsTable extends Migration
     {
         Schema::create('splits', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->string('email');
+            $table->string('code');
             $table->unsignedBigInteger('bill_id');
-
             $table->bigInteger('percentage')->nullable();
             $table->bigInteger('amount')->nullable();
             $table->boolean('settled')->nullable()->default(0);

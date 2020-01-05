@@ -32,6 +32,7 @@ class Bill extends Model
 
     }
 
+
     public function users(){
 
         return $this->belongsToMany(User::class, 'bill_user')->withTimestamps()->orderBy('created_at','DESC');
@@ -48,6 +49,8 @@ class Bill extends Model
 
                 'id' => $split->id,
                 'user_id' => $split->user_id,
+                'email' => $split->email,
+                'code' => $split->code,
                 'bill_id' => $split->bill_id,
                 'amount' => $split->amount,
                 'settled' => $split->settled,

@@ -37,11 +37,11 @@ class TransferController extends Controller
         }
         curl_close($ch);
 
-        // $split = Split::find($request->split_id);
+        $split = Split::find($request->split_id);
 
-        // $split->settled = 1;
+        $split->settled = 1;
 
-        // $split->save();
+        $split->save();
 
         return $result;
 
